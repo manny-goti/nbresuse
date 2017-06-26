@@ -9,10 +9,7 @@ def get_metrics():
     all_processes = [cur_process] + cur_process.children(recursive=True)
     rss = sum([p.memory_info().rss for p in all_processes])
     return {
-        'rss': rss,
-        'limits': {
-            'memory': int(os.environ.get('MEM_LIMIT', None))
-        }
+        'rss': rss
     }
 
 
